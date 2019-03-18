@@ -1,0 +1,26 @@
+{
+  "name": "sat_srv",
+  "version": "1.0.0",
+  "description": "Simple Asset Tracker - Server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sendtorrk/sat_srv.git"
+  },
+  "author": "Raja Kannan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sendtorrk/sat_srv/issues"
+  },
+  "homepage": "https://github.com/sendtorrk/sat_srv#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.23",
+    "winston": "^3.2.1"
+  }
+}
