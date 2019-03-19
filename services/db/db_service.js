@@ -6,7 +6,7 @@
 
 const models = require('./models');
 
-const loggingService = require('../logging/logging');
+const loggingService = require('../logging/logging_service');
 
 class DbService {
   constructor() {

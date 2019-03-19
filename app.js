@@ -9,20 +9,31 @@ const bodyParser = require('body-parser');
 const os = require('os');
 const util = require('util');
 
-const loggingService = require('./services/logging/logging');
-const dbService = require('./services/db/db');
+const loggingService = require('./services/logging/logging_service');
+const dbService = require('./services/db/db_service');
 
 const app = express();
 const port = 8081;
 
+// Stop
+async function stop() {
+  // Any resource clean-up goes here
+}
+
 // Signal handlers
 process.on('SIGTERM', () => {
   loggingService.info('SIGTERM received');
+
+  stop();
+
   process.exit(0);
 });
 
 process.on('SIGINT', () => {
   loggingService.info('SIGINT received');
+
+  stop();
+
   process.exit(0);
 });
 
