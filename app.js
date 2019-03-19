@@ -10,6 +10,7 @@ const os = require('os');
 const util = require('util');
 
 const loggingService = require('./services/logging/logging');
+const dbService = require('./services/db/db');
 
 const app = express();
 const port = 8081;
@@ -46,6 +47,19 @@ app.use((err, req, res, next) => {
   return res.status(500).json(err);
 });
 
-app.listen(port, () => {
-  loggingService.info(`Server started and listening on port ${port}`);
-});
+// Start
+async function start() {
+  try {
+    loggingService.info('Starting server ...');
+
+    await dbService.synchronizeDb();
+    await app.listen(port);
+
+    loggingService.info(`Server started and listening on port ${port}`);
+  }
+  catch (error) {
+    loggingService.error('Unable to start server. Reason: ' + error);
+  }
+}
+
+start();
