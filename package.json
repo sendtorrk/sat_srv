@@ -4,7 +4,7 @@
   "description": "Simple Asset Tracker - Server",
   "main": "app.js",
   "scripts": {
-    "test": "NODE_ENV=test ./node_modules/jasmine/bin/jasmine.js --reporter=jasmine-console-reporter"
+    "test": "NODE_ENV=test ./node_modules/jasmine/bin/jasmine.js --stop-on-failure=true --reporter=jasmine-console-reporter"
   },
   "repository": {
     "type": "git",
