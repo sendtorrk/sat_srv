@@ -41,7 +41,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Routes
-app.use('/api/v1', require('./routes/v1/entry'));
+app.use('/api/v1', require('./routes/v1/entry_routes'));
+app.use('/api/v1', require('./routes/v1/teams_routes'));
+app.use('/api/v1', require('./routes/v1/assets_routes'));
+app.use('/api/v1', require('./routes/v1/assetnotes_routes'));
 
 // NOTE: Error handler should always be the last middleware. DO NOT add any
 // routes after error handler.
