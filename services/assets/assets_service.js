@@ -6,54 +6,56 @@
 
 const models = require('../db/models');
 
-class TeamsService {
+class AssetsService {
   constructor() {
 
   }
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // Get teams by owner
+  // Get assets by team id
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  async getTeamsByOwnerEmail(ownerEmail) {
-    return await models.Team.findAll({
+  async getAssetsByTeamId(teamId) {
+    return await models.Asset.findAll({
       where: {
-        ownerEmail: ownerEmail
+        TeamId: teamId
       },
       raw: true
     });
   }
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // Create new team
+  // Create asset
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  async createTeam(name, ownerEmail) {
-    await models.Team.create({
-      name: name,
-      ownerEmail: ownerEmail
+  async createAsset(serial, model, ownerEmail, teamId) {
+    await models.Asset.create({
+      serial: serial,
+      model: model,
+      ownerEmail: ownerEmail,
+      TeamId: teamId,
     });
   }
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // Update team
+  // Delete all assets
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  async updateTeam(id, newName, newOwnerEmail) {
-    const team = await models.Team.findByPk(id);
-
-    team.name = newName;
-    team.ownerEmail = newOwnerEmail;
-
-    await team.save();
+  async deleteAllAssets() {
+    return await models.Asset.destroy({
+      where: {},
+      truncate: false
+    });
   }
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // Delete all teams
+  // Delete assets by team id
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  async deleteAllTeams() {
-    return await models.Team.destroy({
-      where: {},
+  async deleteAssetsByTeamId(teamId) {
+    return await models.Asset.destroy({
+      where: {
+        TeamId: teamId
+      },
       truncate: false
     });
   }
 }
 
-module.exports = new TeamsService();
+module.exports = new AssetsService();
