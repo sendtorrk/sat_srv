@@ -1,6 +1,6 @@
 # Simple Asset Tracker
 
-Simple Asset Tracker consist of three different projects:
+A simple application to keep track of your lab assets. It consist of three different projects:
 
 * Server
 * UI
