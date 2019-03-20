@@ -6,44 +6,45 @@
 
 const models = require('../db/models');
 
-class AssetsService {
+class AssetNotesService {
   constructor() {
 
   }
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // Get assets by team id
+  // Get asset notes by asset
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  async getAssetsByTeamId(teamId) {
-    return await models.Asset.findAll({
+  async getAssetNotesByAssetId(assetId) {
+    return await models.AssetNote.findAll({
       where: {
-        TeamId: teamId
+        AssetId: assetId
       },
       raw: true
     });
   }
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // Create asset
+  // Create asset note
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  async createAsset(serial, model, ownerEmail, teamId) {
-    await models.Asset.create({
-      serial: serial,
-      model: model,
-      ownerEmail: ownerEmail,
-      TeamId: teamId,
+  async createAssetNote(assetId, note, userEmail) {
+    await models.AssetNote.create({
+      AssetId: assetId,
+      note: note,
+      userEmail: userEmail
     });
   }
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // Delete all assets
+  // Delete all asset notes
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  async deleteAllAssets() {
-    return await models.Asset.destroy({
-      where: {},
-      truncate: false
-    });
+  async deleteAllAssetNotes() {
+    await models.AssetNote.destroy(
+      {
+        where: {},
+        truncate: false
+      }
+    );
   }
 }
 
-module.exports = new AssetsService();
+module.exports = new AssetNotesService();
