@@ -19,6 +19,9 @@ class TeamsService {
       where: {
         ownerEmail: ownerEmail
       },
+      order: [
+        ['name','ASC']
+      ],
       raw: true
     });
   }

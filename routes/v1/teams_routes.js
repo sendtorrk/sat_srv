@@ -30,4 +30,18 @@ router.post('/teams', async (req, res, next) => {
   }
 });
 
+router.put('/teams/:id', async (req, res, next) => {
+  try {
+    const id = req.params.id;
+
+    const name = req.body.name;
+    const ownerEmail = req.body.ownerEmail;
+
+    await teamsService.updateTeam(id, name, ownerEmail);
+    res.sendStatus(200);
+  } catch (error) {
+    return next('Unable to update team. Reason: ' + error);
+  }
+});
+
 module.exports = router;
