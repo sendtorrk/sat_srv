@@ -1,4 +1,4 @@
-# Simple Asset Tracker
+# Simple Asset Tracker - Server
 
 A simple application to keep track of your lab assets. It consist of three different projects:
 
