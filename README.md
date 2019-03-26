@@ -49,6 +49,7 @@ npm test
 From the top-level directory:
 
 ```
+npm install
 node app
 ```
 
