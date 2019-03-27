@@ -16,14 +16,10 @@ This is the server project and powered by:
 
 Assets are organized by Teams. A team can have one or more assets. An asset can have one or more notes.
 
-#### Teams
-
 Team has following fields:
 
 * Name
 * Owner Email
-
-#### Assets
 
 Asset has following fields:
 
@@ -31,8 +27,6 @@ Asset has following fields:
 * Model
 * Asset Owner Email
 * Team ID
-
-#### Asset Notes
 
 Asset note has following fields:
 
@@ -90,3 +84,5 @@ npm test
 ```
 https://localhost:8444/api/v1/
 ```
+
+See doc folder to Postman screen shots
