@@ -1,10 +1,9 @@
 # Simple Asset Tracker - Server
 
-A simple application to keep track of your lab assets. It consist of three different projects:
+A simple application to keep track of your lab assets. It consist of two different projects:
 
 * Server
 * UI
-* Mobile App
 
 This is the server project and powered by:
 
@@ -85,4 +84,4 @@ npm test
 https://localhost:8444/api/v1/
 ```
 
-See doc folder to Postman screen shots
+See [Wiki](https://github.com/sendtorrk/sat_srv/wiki) for screen shots
