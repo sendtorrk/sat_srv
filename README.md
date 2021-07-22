@@ -2,8 +2,8 @@
 
 A simple application to keep track of your lab assets. It consist of two different projects:
 
-* Server
-* UI
+* [Server](https://github.com/sendtorrk/sat_srv/wiki)
+* [UI](https://github.com/sendtorrk/sat_web_ui/wiki)
 
 This is the server project and powered by:
 
@@ -84,4 +84,5 @@ npm test
 https://localhost:8444/api/v1/
 ```
 
+## Screenshots
 See [Wiki](https://github.com/sendtorrk/sat_srv/wiki) for screen shots
